@@ -48,6 +48,7 @@
             const Sform=JSON.stringify(formData)
             // 设置本地缓存,本地缓存是永久保存的 除非自己手动清理
             localStorage.setItem("UI",Sform)
+            console.log(localStorage.getItem("UI"));
             // 懒人api,获取工作目录
             // const savepath = window.bridge.getWorkPath() + "/" + "保存配置.txt";
             // const str=localStorage.getItem("UI");
