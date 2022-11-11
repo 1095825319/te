@@ -37,7 +37,7 @@
     new Vue({
       el: '#app',
       data: {
-        formJson: ui1,
+        formJson: ui,
         // 读取本地缓存并写入
         formData: localStorage.getItem("UI")?JSON.parse(localStorage.getItem("UI")):{},
         optionData: {}
@@ -49,17 +49,17 @@
             // 设置本地缓存,本地缓存是永久保存的 除非自己手动清理
             localStorage.setItem("UI",Sform)
             // 懒人api,获取工作目录
-            const savepath = window.bridge.getWorkPath() + "/" + "保存配置.txt";
-            const str=localStorage.getItem("UI");
+            // const savepath = window.bridge.getWorkPath() + "/" + "保存配置.txt";
+            // const str=localStorage.getItem("UI");
             // 调用懒人api,写入文件
-            const r = window.bridge.writeStringToFile(savepath,str);
+            // const r = window.bridge.writeStringToFile(savepath,str);
             if(r){
               // 懒人api,消息弹窗
-              window.bridge.toast("保存成功",16);
+              // window.bridge.toast("保存成功",16);
               // 懒人api,关闭界面
-              window.bridge.confirm()
+              // window.bridge.confirm()
             }else{
-              window.bridge.toast("保存失败",16);
+              // window.bridge.toast("保存失败",16);
             };
             // this.sendLua()
           }).catch(function (error) {
