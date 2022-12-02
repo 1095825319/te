@@ -54,8 +54,8 @@
           })
         },
         Clear(){
-          window.location.reload();
           localStorage.clear()
+          window.bridge.confirm()
         }
       }
 	});
