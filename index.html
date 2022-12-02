@@ -42,7 +42,7 @@
         optionData: {}
       },
       methods: {
-        submitForm() {
+         Save() {
           this.$refs.vmFormRef.getFormData().then( (formData) => {
             // Form Validation OK
             const dataS=JSON.stringify(formData)
@@ -52,7 +52,11 @@
             // Form Validation Failed
             error(error)
           })
+        },
+        Clear(){
+          localStorage.clear()
         }
+      }
       }
 	});
 </script>
