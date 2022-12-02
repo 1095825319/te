@@ -1,80 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdn.staticfile.org/element-ui/2.15.7/theme-chalk/index.min.css">
-  <link rel="stylesheet" href="./dist/vant2.12.min.css" />
-  <link rel="stylesheet" href="./dist/VmFormRender.css">
-  <title>Document</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+	<title>VForm Demo</title>
+	<link rel="stylesheet" href="https://cdn.staticfile.org/element-ui/2.15.7/theme-chalk/index.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/vant@2.12/lib/index.css" />
+	<link rel="stylesheet" href="https://ks3-cn-beijing.ksyun.com/vform2022/VmFormRender.css?t=20210720">  
+	<style type="text/css">
+	</style>
 </head>
-
 <body>
-  <!-- vant2 -->
+
   <div id="app">
-    <vm-form-render :form-json="formJson" :form-data="formData" :option-data="optionData" ref="vmFormRef">
+	  <vm-form-render :form-json="formJson" :form-data="formData" :option-data="optionData" ref="vmFormRef">
     </vm-form-render>
-    <!-- 按钮 -->
-    <!-- <van-button type="primary" block @click="submitForm">Save</van-button>
-    <van-button type="primary" block @click="callLua('toast1')">调用lua的toast1函数</van-button> -->
+	  <el-button type="primary" @click="submitForm">Submit</el-button>
   </div>
-  <script type="text/javascript">
-    if (!!window.ActiveXObject || "ActiveXObject" in window) { //IE load polyfill.js for Promise
-      var scriptEle = document.createElement("script");
-      scriptEle.type = "text/javascript";
-      scriptEle.src = "https://cdn.bootcss.com/babel-polyfill/6.23.0/polyfill.min.js"
-      document.body.appendChild(scriptEle)
-    }
-  </script>
-  <script src="./dist/ui.js"></script>
-  <script src="./dist/vue2.6.14.min.js"></script>
-  <script src="https://cdn.staticfile.org/element-ui/2.15.7/index.min.js"></script>
-  <script src="./dist/vant2.12.min.js"></script>
-  <script src="./dist/VmFormRender.umd.min.js"></script>
-  <script>
-    new Vue({
+
+<script type="text/javascript">
+  if (!!window.ActiveXObject || "ActiveXObject" in window) { //IE load polyfill.js for Promise
+    var scriptEle = document.createElement("script");
+    scriptEle.type = "text/javascript";
+    scriptEle.src = "https://cdn.bootcss.com/babel-polyfill/6.23.0/polyfill.min.js"
+    document.body.appendChild(scriptEle)
+  }
+</script>
+<script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/vue/2.6.14/vue.min.js"></script>
+<script src="https://cdn.staticfile.org/element-ui/2.15.7/index.min.js"></script>
+<script src="https://unpkg.com/vant@2.12/lib/vant.min.js"></script>
+<script src="./dist/UI.js"></script>
+<script src="./dist/VmFormRender.umd.min.js"></script>
+<script>
+	new Vue({
       el: '#app',
       data: {
-        formJson: ui4,
-        // 读取本地缓存并写入
+        formJson: ui1,
         formData: localStorage.getItem("UI")?JSON.parse(localStorage.getItem("UI")):{},
         optionData: {}
       },
       methods: {
         submitForm() {
-          this.$refs.vmFormRef.getFormData().then((formData) => {
-            const Sform=JSON.stringify(formData)
-            // 设置本地缓存,本地缓存是永久保存的 除非自己手动清理
-            localStorage.setItem("UI",Sform)
-            console.log(localStorage.getItem("UI"));
-            // 懒人api,获取工作目录
-            // const savepath = window.bridge.getWorkPath() + "/" + "保存配置.txt";
-            // const str=localStorage.getItem("UI");
-            // 调用懒人api,写入文件
-            // const r = window.bridge.writeStringToFile(savepath,str);
-            // if(r){
-              // 懒人api,消息弹窗
-              // window.bridge.toast("保存成功",16);
-              // 懒人api,关闭界面
-              // window.bridge.confirm()
-            // }else{
-              // window.bridge.toast("保存失败",16);
-            // };
-            // this.sendLua()
-            
-          }).catch(function (error) {
+          this.$refs.vmFormRef.getFormData().then( (formData) => {
+            // Form Validation OK
+            const dataS=JSON.stringify(formData)
+            localStorage.setItem("UI",dataS)
+            console.log(dataS)
+          }).catch( function(error) {
             // Form Validation Failed
-            alert(error)
+            error(error)
           })
         }
       }
-    });
-    function callLua(fun) {
-			window.bridge.callLua(fun+"()");
-		}
-  </script>
+	});
+</script>
 </body>
-
 </html>
