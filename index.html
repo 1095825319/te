@@ -48,15 +48,16 @@
             const dataS=JSON.stringify(formData)
             localStorage.setItem("UI",dataS)
             console.log(dataS)
-            window.bridge.toast("保存成功\n"+dataS,16)
+            // window.bridge.toast("保存成功\n"+dataS,16)
           }).catch( function(error) {
             // Form Validation Failed
             error(error)
           })
         },
         Clear(){
+          this.$refs.vmFormRef.resetForm()
           localStorage.clear()
-          关闭界面()
+          // 关闭界面()
         }
       }
 	});
