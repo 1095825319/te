@@ -55,10 +55,13 @@
         },
         Clear(){
           localStorage.clear()
-          window.bridge.ui.dismiss("layout1")
+          关闭界面()
         }
       }
 	});
+  function 关闭界面() {
+		window.bridge.callLua("关闭界面()");
+	}
 </script>
 </body>
 </html>
