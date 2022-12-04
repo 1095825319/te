@@ -42,6 +42,10 @@
         formData: {},
         optionData: {}
       },
+      mounted(){
+        let ui=localStorage.getItem("UI")
+        ui && this.$refs.vFormRef.setFormData(ui)
+      },
       methods: {
         Save() {
           this.$refs.vmFormRef.getFormData().then( (formData) => {
