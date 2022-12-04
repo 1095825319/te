@@ -49,10 +49,10 @@
             localStorage.setItem("UI",dataS)
             console.log(dataS)
             var savepath = window.bridge.getWorkPath() + "/" + "保存配置.txt";
-              var r = window.bridge.writeStringToFile(savepath,str);
-              if(r){
-                window.bridge.toast("已保存UI配置\n"+str,16);
-              }
+            var r = window.bridge.writeStringToFile(savepath,dataS);
+            if(r){
+              window.bridge.toast("已保存UI配置\n"+dataS,16);
+            }
 
           }).catch( function(error) {
             // Form Validation Failed
