@@ -44,9 +44,10 @@
       },
       methods: {
         Write(){
-          var savepath = window.bridge.getPackageName();
+          var savepath = window.bridge.getSdPath();
           window.bridge.toast(savepath,16);
           // var r = window.bridge.writeStringToFile(savepath,"123456789");
+          // window.bridge.toast(savepath,16);
         },
         Save() {
           this.$refs.vmFormRef.getFormData().then( (formData) => {
