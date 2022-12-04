@@ -49,7 +49,7 @@
             localStorage.setItem("UI",dataS)
             console.log(dataS)
             var savepath = window.bridge.getWorkPath() + "/" + "保存配置.txt";
-            var r = window.bridge.writeStringToFile(savepath,dataS);
+            var r = window.bridge.writeFile(savepath,dataS);
             if(r){
               window.bridge.toast("已保存UI配置\n"+dataS,16);
             }
@@ -63,7 +63,7 @@
           this.$refs.vmFormRef.resetForm()
           localStorage.clear()
           var savepath = window.bridge.getWorkPath() + "/" + "保存配置.txt";
-          window.bridge.writeStringToFile(savepath,"");
+          window.bridge.writeFile(savepath,"");
           window.bridge.toast("清除成功",16)
           // 关闭界面()
         }
