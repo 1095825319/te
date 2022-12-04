@@ -44,7 +44,7 @@
       },
       methods: {
         Write(){
-          var savepath = window.bridge.getSdPath()+"/忘忧草.txt";
+          var savepath = window.bridge.getWorkPath() + "/" + "保存配置.txt";
           window.bridge.toast(savepath,16);
           // var r = window.bridge.writeStringToFile(savepath,"123456789");
           // window.bridge.toast(savepath,16);
