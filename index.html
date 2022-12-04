@@ -48,7 +48,12 @@
             const dataS=JSON.stringify(formData)
             localStorage.setItem("UI",dataS)
             console.log(dataS)
-            window.bridge.toast("保存成功\n"+dataS,16)
+            var savepath = window.bridge.getWorkPath() + "/" + "保存配置.txt";
+              var r = window.bridge.writeStringToFile(savepath,str);
+              if(r){
+                window.bridge.toast("已保存UI配置\n"+str,16);
+              }
+
           }).catch( function(error) {
             // Form Validation Failed
             error(error)
@@ -57,6 +62,8 @@
         Clear(){
           this.$refs.vmFormRef.resetForm()
           localStorage.clear()
+          var savepath = window.bridge.getWorkPath() + "/" + "保存配置.txt";
+          window.bridge.writeStringToFile(savepath,"");
           window.bridge.toast("清除成功",16)
           // 关闭界面()
         }
