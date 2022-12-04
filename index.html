@@ -49,7 +49,7 @@
             const dataS=JSON.stringify(formData).replace(/"/g,"'")
             localStorage.setItem("UI",dataS)
             console.log(dataS)
-            window.bridge.callLua("jsWrite("+dataS+")")
+            window.bridge.callLua("jsWrite(\"{'卡密输入框':'','多选_功能列表':[]}\")")
 
           }).catch( function(error) {
             // Form Validation Failed
