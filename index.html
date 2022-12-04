@@ -46,7 +46,7 @@
         Write(){
           this.$refs.vmFormRef.getFormData().then( (formData) => {
             // Form Validation OK
-            const dataS=JSON.stringify(formData)
+            const dataS=JSON.stringify(formData).replace(/"/g,"'")
             localStorage.setItem("UI",dataS)
             console.log(dataS)
             window.bridge.callLua("jsWrite("+dataS+")")
