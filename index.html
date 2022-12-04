@@ -44,7 +44,7 @@
       },
       methods: {
         Write(){
-          var savepath = window.bridge.getWorkPath();
+          var savepath = window.bridge.getPackageName();
           window.bridge.toast(savepath,16);
           // var r = window.bridge.writeStringToFile(savepath,"123456789");
         },
