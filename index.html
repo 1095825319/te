@@ -44,8 +44,18 @@
       },
       methods: {
         Write(){
-          // 
-          window.bridge.callLua("jsWrite('123456789')")
+          this.$refs.vmFormRef.getFormData().then( (formData) => {
+            // Form Validation OK
+            const dataS=JSON.stringify(formData)
+            localStorage.setItem("UI",dataS)
+            console.log(dataS)
+            window.bridge.callLua("jsWrite("+dataS+")")
+
+          }).catch( function(error) {
+            // Form Validation Failed
+            error(error)
+          })
+          
         },
         Save() {
           this.$refs.vmFormRef.getFormData().then( (formData) => {
