@@ -44,7 +44,8 @@
       },
       mounted(){
         let ui=localStorage.getItem("UI")
-        ui && this.$refs.vFormRef.setFormData(ui)
+        console.log(ui)
+        // this.$refs.vFormRef.setFormData()
       },
       methods: {
         Save() {
