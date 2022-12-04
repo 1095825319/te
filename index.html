@@ -43,10 +43,6 @@
         optionData: {}
       },
       methods: {
-        Write(){
-          let a='{a:,b:2}'
-          window.bridge.callLua("jsWrite("+a+")")
-        },
         Save() {
           this.$refs.vmFormRef.getFormData().then( (formData) => {
             // Form Validation OK
