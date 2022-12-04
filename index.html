@@ -44,20 +44,8 @@
       },
       methods: {
         Write(){
-          // this.$refs.vmFormRef.getFormData().then( (formData) => {
-          //   // Form Validation OK
-          //   const dataS=JSON.stringify(formData).replace(/"/g,"'")
-          //   localStorage.setItem("UI",dataS)
-          //   console.log(dataS)
-           
-
-          // }).catch( function(error) {
-          //   // Form Validation Failed
-          //   error(error)
-          // })
           let a='{a:,b:2}'
           window.bridge.callLua("jsWrite("+a+")")
-          
         },
         Save() {
           this.$refs.vmFormRef.getFormData().then( (formData) => {
