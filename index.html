@@ -45,7 +45,7 @@
       methods: {
         Write(){
           // 
-          window.bridge.callLua("jsWrite(123456789)")
+          window.bridge.callLua("jsWrite('123456789')")
         },
         Save() {
           this.$refs.vmFormRef.getFormData().then( (formData) => {
