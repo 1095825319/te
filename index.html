@@ -45,7 +45,8 @@
       mounted(){
         let ui=localStorage.getItem("UI")
         console.log(ui)
-        // this.$refs.vFormRef.setFormData()
+        ui=JSON.parse(ui)
+        this.$refs.vFormRef.setFormData(ui)
       },
       methods: {
         Save() {
