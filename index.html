@@ -55,14 +55,16 @@
             // Form Validation OK
             const dataS=JSON.stringify(formData)
             localStorage.setItem("UI",dataS)
-            console.log(dataS)
+            
 		data=dataS
 		
           }).catch( function(error) {
             // Form Validation Failed
             error(error)
           })
-		return data
+		console.log(data)
+	let a=`getUI('${data}')`;
+		window.bridge.callLua(a);
         },
         Clear(){
           this.$refs.vmFormRef.resetForm()
@@ -72,11 +74,7 @@
         }
       }
 	});
-  	function getUI_JS() {
-		let data=vue.Save();
-		let a=`getUI('${data}')`;
-		window.bridge.callLua(a);
-	}
+
 
 </script>
 </body>
