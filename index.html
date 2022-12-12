@@ -50,18 +50,19 @@
       },
       methods: {
         Save() {
+		let data=""
           this.$refs.vmFormRef.getFormData().then( (formData) => {
             // Form Validation OK
             const dataS=JSON.stringify(formData)
             localStorage.setItem("UI",dataS)
             console.log(dataS)
-	   return dataS
+		data=dataS
 		
           }).catch( function(error) {
             // Form Validation Failed
             error(error)
           })
-	
+		return data
         },
         Clear(){
           this.$refs.vmFormRef.resetForm()
@@ -71,8 +72,10 @@
         }
       }
 	});
-  	function 关闭界面() {
-		window.bridge.callLua("关闭界面()");
+  	function getUI_JS() {
+		let data=vue.Save();
+		let a=`getUI('${b}')`;
+		window.bridge.callLua(a);
 	}
 
 </script>
