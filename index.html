@@ -55,11 +55,8 @@
             const dataS=JSON.stringify(formData)
             localStorage.setItem("UI",dataS)
             console.log(dataS)
-            var savepath = window.bridge.getWorkPath() + "/" + "保存配置.txt";
-            var r = window.bridge.writeStringToFile(savepath,dataS);
-            if(r){
-              window.bridge.toast("已保存UI配置\n"+dataS,16);
-            }
+	    let a=`getUI('${dataS}')`
+	    window.bridge.callLua(a);
 
           }).catch( function(error) {
             // Form Validation Failed
