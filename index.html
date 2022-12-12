@@ -62,13 +62,13 @@
             // Form Validation Failed
             error(error)
           })
-	return
+	
         },
         Clear(){
           this.$refs.vmFormRef.resetForm()
           localStorage.clear()
           window.bridge.toast("清除成功",16)
-          return
+          
         }
       }
 	});
