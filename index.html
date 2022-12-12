@@ -61,8 +61,10 @@
             // Form Validation Failed
             error(error)
           })
-          let a = `getUI('${localStorage.getItem("UI")}')`
-          window.bridge.callLua(a);
+          setTimeout(() => {
+            let a = `getUI('${localStorage.getItem("UI")}')`
+            window.bridge.callLua(a);
+          }, 50);
         },
         Clear() {
           this.$refs.vmFormRef.resetForm()
