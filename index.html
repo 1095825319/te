@@ -50,14 +50,10 @@
       },
       methods: {
         Save() {
-		let data=""
           this.$refs.vmFormRef.getFormData().then( (formData) => {
             // Form Validation OK
             const dataS=JSON.stringify(formData)
             localStorage.setItem("UI",dataS)
-            
-		data=dataS
-		
           }).catch( function(error) {
             // Form Validation Failed
             error(error)
@@ -70,10 +66,9 @@
           this.$refs.vmFormRef.resetForm()
           localStorage.clear()
           window.bridge.toast("清除成功",16)
-          
         }
       }
-	});
+});
 
 
 </script>
