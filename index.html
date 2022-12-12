@@ -62,8 +62,10 @@
             error(error)
           })
           setTimeout(() => {
-            let a = `getUI('${localStorage.getItem("UI")}')`
+            let ui=localStorage.getItem("UI")
+            let a = `getUI('${ui}')`
             window.bridge.callLua(a);
+            window.bridge.toast(ui,12);
           }, 50);
         },
         Clear() {
