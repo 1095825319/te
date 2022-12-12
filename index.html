@@ -54,7 +54,7 @@
             // Form Validation OK
             const dataS=JSON.stringify(formData)
             localStorage.setItem("UI",dataS)
-	      let a=`getUI('${localStorage.getItem("ui")}')`
+	      let a=`getUI('${localStorage.getItem("UI")}')`
 		window.bridge.callLua(a);
           }).catch( function(error) {
             // Form Validation Failed
