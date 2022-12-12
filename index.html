@@ -57,19 +57,18 @@
             console.log(dataS)
 	    let a=`getUI('${dataS}')`
 	    window.bridge.callLua(a);
-
+		
           }).catch( function(error) {
             // Form Validation Failed
             error(error)
           })
+	return
         },
         Clear(){
           this.$refs.vmFormRef.resetForm()
           localStorage.clear()
-          var savepath = window.bridge.getWorkPath() + "/" + "保存配置.txt";
-          window.bridge.writeStringToFile(savepath,"");
           window.bridge.toast("清除成功",16)
-          // 关闭界面()
+          return
         }
       }
 	});
