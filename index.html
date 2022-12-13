@@ -42,14 +42,8 @@
       el: '#app',
       data: {
         formJson: ui1,
-        formData: {},
+        formData:  localStorage.getItem("UI")?JSON.parse(localStorage.getItem("UI")):{},
         optionData: {}
-      },
-      mounted() {
-        let ui = localStorage.getItem("UI")
-        console.log(ui)
-        ui = JSON.parse(ui)
-        this.$refs.vFormRef.setFormData(ui)
       },
       methods: {
         Save() {
