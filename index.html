@@ -59,7 +59,7 @@
             let ui=localStorage.getItem("UI")
             let a = `getUI('${ui}')`
             window.bridge.callLua(a);
-            window.bridge.toast(ui,12);
+            window.bridge.toast("开始运行",12);
           }, 50);
         },
         Clear() {
