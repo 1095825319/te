@@ -51,13 +51,14 @@
       },
       methods: {
         Write() {
-          this.$refs.vmFormRef.getFormData().then((formData) => {
+            this.$refs.vmFormRef.getFormData().then((formData) => {
             // Form Validation OK
             const dataS = JSON.stringify(formData)
             navigator.clipboard.writeText(dataS)
             var input = document.getElementById('customInput').querySelector('input');
+            input.value=dataS
             input.select();
-            document.execCommand(dataS);
+            document.execCommand("copy");
             alert('文本已复制');
           }).catch(function (error) {
             // Form Validation Failed
