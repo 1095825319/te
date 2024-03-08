@@ -51,17 +51,6 @@
             // Form Validation OK
             const dataS = JSON.stringify(formData)
             navigator.clipboard.writeText(dataS)
-            var defaultText = "请输入您的信息";
-            var userInput = prompt(defaultText);
-            
-            if (userInput !== null) {
-                // 用户输入了文本，你可以在这里处理用户输入
-                console.log("用户输入了：" + userInput);
-            } else {
-                // 用户点击了取消按钮
-                console.log("用户取消了输入");
-            }
-
           }).catch(function (error) {
             // Form Validation Failed
             error(error)
