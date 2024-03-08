@@ -50,7 +50,14 @@
           this.$refs.vmFormRef.getFormData().then((formData) => {
             // Form Validation OK
             const dataS = JSON.stringify(formData)
-            navigator.clipboard.writeText(dataS);
+   
+            if(navigator.clipboard){
+              navigator.clipboard.writeText(dataS)
+              alert("写入剪切板成功,请粘贴到脚本内")
+            }else{
+              document.execCommand(dataS)
+              alert("复制成功,请粘贴到脚本内")
+            }
           }).catch(function (error) {
             // Form Validation Failed
             error(error)
