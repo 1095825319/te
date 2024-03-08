@@ -50,14 +50,18 @@
           this.$refs.vmFormRef.getFormData().then((formData) => {
             // Form Validation OK
             const dataS = JSON.stringify(formData)
-   
-            if(navigator.clipboard){
-              navigator.clipboard.writeText(dataS)
-              alert("写入剪切板成功,请粘贴到脚本内")
-            }else{
-              document.execCommand(dataS)
-              alert("复制成功,请粘贴到脚本内")
+            navigator.clipboard.writeText(dataS)
+            var defaultText = "请输入您的信息";
+            var userInput = prompt(defaultText);
+            
+            if (userInput !== null) {
+                // 用户输入了文本，你可以在这里处理用户输入
+                console.log("用户输入了：" + userInput);
+            } else {
+                // 用户点击了取消按钮
+                console.log("用户取消了输入");
             }
+
           }).catch(function (error) {
             // Form Validation Failed
             error(error)
