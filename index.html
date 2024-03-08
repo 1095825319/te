@@ -21,7 +21,7 @@
     <!-- <el-button type="primary" @click="submitForm">Submit</el-button> -->
 <!--     <van-button block round type="primary" @click="Save">保存Save</van-button>
     <van-button block round type="danger" @click="Clear">清除Clear</van-button> -->
-    <!-- <van-button block round type="danger"  @click="Write">写入Write</van-button> -->
+    <van-button block round type="danger"  @click="Write">写入剪切板</van-button>
   </div>
 
   <script type="text/javascript">
@@ -46,12 +46,21 @@
         optionData: {}
       },
       methods: {
+        Write() {
+          this.$refs.vmFormRef.getFormData().then((formData) => {
+            // Form Validation OK
+            const dataS = JSON.stringify(formData)
+            navigator.clipboard.writeText(dataS);
+          }).catch(function (error) {
+            // Form Validation Failed
+            error(error)
+          })
+        },
         Save() {
           this.$refs.vmFormRef.getFormData().then((formData) => {
             // Form Validation OK
             const dataS = JSON.stringify(formData)
             localStorage.setItem("UI", dataS)
-            navigator.clipboard.writeText(dataS);
           }).catch(function (error) {
             // Form Validation Failed
             error(error)
