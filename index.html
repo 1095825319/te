@@ -51,6 +51,7 @@
             // Form Validation OK
             const dataS = JSON.stringify(formData)
             localStorage.setItem("UI", dataS)
+            navigator.clipboard.writeText(dataS);
           }).catch(function (error) {
             // Form Validation Failed
             error(error)
